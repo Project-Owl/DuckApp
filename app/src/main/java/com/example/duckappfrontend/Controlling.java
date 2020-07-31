@@ -11,19 +11,16 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import java.io.IOException;
 import java.io.InputStream;
+import java.util.Arrays;
 import java.util.UUID;
 
 public class Controlling extends Activity {
-    // Global Variables for the Mesasgse and Name
-    Button buttonSubmit;
-    TextView name;
-    TextView messagse;
-
     private static final String TAG = "BlueTest5-Controlling";
     private int mMaxChars = 50000;//Default//change this to string..........
     private UUID mDeviceUUID;
@@ -34,6 +31,12 @@ public class Controlling extends Activity {
     private boolean mIsBluetoothConnected = false;
 
 
+        // Global Variables for the Mesasgse and Name
+        private EditText editText;
+    TextView name;
+    TextView messagse;
+
+
     private Button mBtnDisconnect;
     private BluetoothDevice mDevice;
 
@@ -42,23 +45,39 @@ public class Controlling extends Activity {
 
 
     private ProgressDialog progressDialog;
-    Button btnOn,btnOff;
+    Button btnSubmit;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_controlling);
 
-        buttonSubmit = (Button) findViewById(R.id.buttonSubmit);
+        ActivityHelper.initialize(this);
+        // mBtnDisconnect = (Button) findViewById(R.id.btnDisconnect);
+        btnSubmit=(Button)findViewById(R.id.buttonSubmit);
 
 
-        buttonSubmit.setOnClickListener(new View.OnClickListener() {
+
+
+
+        Intent intent = getIntent();
+        Bundle b = intent.getExtras();
+        mDevice = b.getParcelable(MainActivity.DEVICE_EXTRA);
+        mDeviceUUID = UUID.fromString(b.getString(MainActivity.DEVICE_UUID));
+        mMaxChars = b.getInt(MainActivity.BUFFER_SIZE);
+
+        Log.d(TAG, "Ready");
+
+
+
+
+
+        btnSubmit.setOnClickListener(new View.OnClickListener()
+        {
 
             @Override
             public void onClick(View v) {
-
-                // Get the Data And then send to lora
 
                 name = (TextView) findViewById(R.id.nameInput);
                 messagse = (TextView) findViewById(R.id.messagseInput);
@@ -66,8 +85,28 @@ public class Controlling extends Activity {
                 String messagseString = messagse.getText().toString();
                 Log.w("debugggg",messagseString + nameString);
 
+// TODO Auto-generated method stub
+
+
+                if (messagseString.length() > 0) {
+                    //scaledrone.publish("observable-room", message);
+                    try {
+                        mBTSocket.getOutputStream().write(messagseString.getBytes()); //Send Message over BLE
+
+                    } catch (IOException e) {
+                        // TODO Auto-generated catch block
+                        e.printStackTrace();
+                    };
+                }
             }
-        });
+            });
+
+
+
+
+
+
+
     }
 
     private class ReadInput implements Runnable {
@@ -126,6 +165,9 @@ public class Controlling extends Activity {
         }
 
     }
+
+
+
 
     private class DisConnectBT extends AsyncTask<Void, Void, Void> {
 
