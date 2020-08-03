@@ -8,6 +8,7 @@ import android.bluetooth.BluetoothSocket;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.os.Handler;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
@@ -17,6 +18,7 @@ import android.widget.Toast;
 
 import java.io.IOException;
 import java.io.InputStream;
+import java.nio.ByteBuffer;
 import java.util.Arrays;
 import java.util.UUID;
 
@@ -79,26 +81,48 @@ public class Controlling extends Activity {
             @Override
             public void onClick(View v) {
 
+                // Get input fields from view
                 name = (TextView) findViewById(R.id.nameInput);
                 messagse = (TextView) findViewById(R.id.messagseInput);
-                String nameString = name.getText().toString();
-                String messagseString = messagse.getText().toString();
+                // Pull Strings from fields
+                final String nameString = name.getText().toString();
+                final String messagseString = messagse.getText().toString();
+
+                // Strings to Bytes
+                byte[] nameByte = nameString.getBytes();
+                byte[] messagseByte = messagseString.getBytes();
 
 
-// TODO Auto-generated method stub
+                // Combine two Byte arrays (two fields) into one
+                final byte[] allBytes = new byte[nameByte.length + messagseByte.length];
+                System.arraycopy(nameByte, 0, allBytes, 0, nameByte.length);
+                System.arraycopy(messagseByte, 0, allBytes, nameByte.length, messagseByte.length);
 
 
-                if (messagseString.length() > 0) {
-                    //scaledrone.publish("observable-room", message);
-                    try {
-                        mBTSocket.getOutputStream().write(messagseString.getBytes()); //Send Message over BLE
-                        Log.w("debugggg",messagseString + nameString);
+                new Handler().postDelayed(new Runnable() {
+                    @Override
+                    public void run() {
+                        if (messagseString.length() > 0) {
+                            //scaledrone.publish("observable-room", message);
+                            try {
 
-                    } catch (IOException e) {
-                        // TODO Auto-generated catch block
-                        e.printStackTrace();
-                    };
-                }
+
+                                mBTSocket.getOutputStream().write(allBytes); //Send Message over BLE
+                                Log.w("debugggg",messagseString + nameString);
+                                msg("Message Send");
+
+
+                            } catch (IOException e) {
+                                e.printStackTrace();
+                            };
+                        }
+                    }
+                }, 2000); // Millisecond 1000 = 1 sec
+
+
+
+
+
             }
             });
 
