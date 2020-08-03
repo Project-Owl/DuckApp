@@ -83,7 +83,7 @@ public class Controlling extends Activity {
                 messagse = (TextView) findViewById(R.id.messagseInput);
                 String nameString = name.getText().toString();
                 String messagseString = messagse.getText().toString();
-                Log.w("debugggg",messagseString + nameString);
+
 
 // TODO Auto-generated method stub
 
@@ -92,6 +92,7 @@ public class Controlling extends Activity {
                     //scaledrone.publish("observable-room", message);
                     try {
                         mBTSocket.getOutputStream().write(messagseString.getBytes()); //Send Message over BLE
+                        Log.w("debugggg",messagseString + nameString);
 
                     } catch (IOException e) {
                         // TODO Auto-generated catch block

@@ -7,21 +7,25 @@
     android:orientation="vertical"
     tools:context=".MainActivity">
 
-    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
+
         <Button
             android:id="@+id/search"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="match_parent"
-            android:text="Search" />
+            android:layout_weight="1"
+            android:backgroundTint="#08172D"
+            android:text="Search"
+            android:textColor="#FFFFFF" />
 
         <Button
             android:id="@+id/connect"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="match_parent"
+            android:layout_weight="1"
             android:text="Connect" />
-
 
 
     </LinearLayout>
