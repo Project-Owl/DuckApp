@@ -59,10 +59,6 @@ public class Controlling extends Activity {
         // mBtnDisconnect = (Button) findViewById(R.id.btnDisconnect);
         btnSubmit=(Button)findViewById(R.id.buttonSubmit);
 
-
-
-
-
         Intent intent = getIntent();
         Bundle b = intent.getExtras();
         mDevice = b.getParcelable(MainActivity.DEVICE_EXTRA);
@@ -176,10 +172,9 @@ public class Controlling extends Activity {
                     Thread.sleep(500);
                 }
             } catch (IOException e) {
-// TODO Auto-generated catch block
                 e.printStackTrace();
             } catch (InterruptedException e) {
-// TODO Auto-generated catch block
+
                 e.printStackTrace();
             }
 
@@ -214,7 +209,7 @@ public class Controlling extends Activity {
             try {
                 mBTSocket.close();
             } catch (IOException e) {
-// TODO Auto-generated catch block
+
                 e.printStackTrace();
             }
 
@@ -262,7 +257,7 @@ public class Controlling extends Activity {
 
     @Override
     protected void onSaveInstanceState(Bundle outState) {
-// TODO Auto-generated method stub
+
         super.onSaveInstanceState(outState);
     }
 
@@ -315,7 +310,6 @@ public class Controlling extends Activity {
     }
     @Override
     protected void onDestroy() {
-        // TODO Auto-generated method stub
         super.onDestroy();
     }
 }

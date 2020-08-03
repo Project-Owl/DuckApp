@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">DuckAppFrontEnd</string>
+    <string name="app_name">OWL DUCK APP</string>
     <string name="name">Name:</string>
     <string name="send">Send</string>
     <string name="logo">Logo</string>
