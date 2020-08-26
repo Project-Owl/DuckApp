@@ -78,7 +78,7 @@ public class Controlling extends Activity {
             public void onClick(View v) {
 
                 // Get input fields from view
-                name = (TextView) findViewById(R.id.nameInput);
+                 name = (TextView) findViewById(R.id.nameInput);
                 messagse = (TextView) findViewById(R.id.messagseInput);
                 // Pull Strings from fields
                 final String nameString = name.getText().toString();
@@ -106,6 +106,12 @@ public class Controlling extends Activity {
                                 mBTSocket.getOutputStream().write(allBytes); //Send Message over BLE
                                 Log.w("debugggg",messagseString + nameString);
                                 msg("Message Send");
+
+
+                                // Clear Text Fields
+                                name.setText(null);
+                                messagse.setText(null);
+
 
 
                             } catch (IOException e) {
