@@ -54,11 +54,12 @@
         android:inputType="textPersonName"
         android:textAlignment="center"
         android:textColor="#FFFFFF"
-        android:textColorHint="#FFFFFF"
+        android:textColorHint="#45B1B1B1"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.48"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/logoImageView" />
+        app:layout_constraintTop_toBottomOf="@+id/logoImageView"
+        android:maxLength="10"/>
 
     <EditText
         android:id="@+id/messagseInput"
@@ -70,11 +71,11 @@
         android:backgroundTint="#FFFFFF"
         android:ems="10"
         android:gravity="start|top"
-        android:hint="Messagse"
+        android:hint="@string/messagse"
         android:inputType="textMultiLine"
         android:textAlignment="center"
         android:textColor="#FFFFFF"
-        android:textColorHint="#FFFFFF"
+        android:textColorHint="#45B1B1B1"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/nameInput" />

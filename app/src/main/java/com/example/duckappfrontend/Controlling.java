@@ -98,7 +98,7 @@ public class Controlling extends Activity {
                 new Handler().postDelayed(new Runnable() {
                     @Override
                     public void run() {
-                        if (messagseString.length() > 0) {
+                        if (messagseString.length() > 0 && nameString.length() >0) {
                             //scaledrone.publish("observable-room", message);
                             try {
 
@@ -116,7 +116,11 @@ public class Controlling extends Activity {
 
                             } catch (IOException e) {
                                 e.printStackTrace();
+
                             };
+                        } else{
+                                    msg("Messagse or name field is empty");
+
                         }
                     }
                 }, 2000); // Millisecond 1000 = 1 sec

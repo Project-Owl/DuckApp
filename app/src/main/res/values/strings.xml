@@ -3,5 +3,6 @@
     <string name="name">Name:</string>
     <string name="send">Send</string>
     <string name="logo">Logo</string>
+    <string name="messagse">Messagse</string>
 
 </resources>
