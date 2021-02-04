@@ -2,31 +2,12 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/messagseBox"
+    android:id="@+id/messageBox"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#08172D"
+    android:background="#FFFFFF"
     android:textAlignment="center"
     tools:context=".MainActivity">
-
-    <ImageView
-        android:id="@+id/logoImageView"
-        android:layout_width="86dp"
-        android:layout_height="69dp"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginStart="132dp"
-        android:layout_marginTop="56dp"
-        android:layout_marginEnd="132dp"
-        android:contentDescription="@string/logo"
-        android:scaleType="fitXY"
-        android:scaleX="1.5"
-        android:scaleY="1.5"
-        android:src="@drawable/logo_owl"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.491"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
 
     <Button
         android:id="@+id/buttonSubmit"
@@ -46,33 +27,44 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="101dp"
-        android:layout_marginTop="76dp"
+        android:layout_marginTop="201dp"
         android:layout_marginEnd="101dp"
-        android:backgroundTint="#FFFFFF"
+        android:backgroundTint="#000000"
         android:ems="10"
         android:inputType="textPersonName"
         android:textAlignment="center"
-        android:textColor="#FFFFFF"
+        android:textColor="#000000"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.48"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/logoImageView" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
-        android:id="@+id/messagseInput"
+        android:id="@+id/messageInput"
         android:layout_width="207dp"
         android:layout_height="90dp"
         android:layout_marginStart="100dp"
         android:layout_marginTop="54dp"
         android:layout_marginEnd="101dp"
-        android:backgroundTint="#FFFFFF"
+        android:backgroundTint="#000000"
         android:ems="10"
         android:gravity="start|top"
         android:inputType="textMultiLine"
         android:textAlignment="center"
-        android:textColor="#FFFFFF"
+        android:textColor="#000000"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/nameInput" />
+
+    <ImageView
+        android:id="@+id/imageView2"
+        android:layout_width="305dp"
+        android:layout_height="120dp"
+        android:layout_marginTop="34dp"
+        android:src="@drawable/cdp_logo"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

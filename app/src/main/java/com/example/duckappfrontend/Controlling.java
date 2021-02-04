@@ -36,7 +36,7 @@ public class Controlling extends Activity {
         // Global Variables for the Mesasgse and Name
         private EditText editText;
     TextView name;
-    TextView messagse;
+    TextView message;
 
 
     private Button mBtnDisconnect;
@@ -79,38 +79,38 @@ public class Controlling extends Activity {
 
                 // Get input fields from view
                  name = (TextView) findViewById(R.id.nameInput);
-                messagse = (TextView) findViewById(R.id.messagseInput);
+                message = (TextView) findViewById(R.id.messageInput);
                 // Pull Strings from fields
                 final String nameString = name.getText().toString();
-                final String messagseString = messagse.getText().toString();
+                final String messageString = message.getText().toString();
 
                 // Strings to Bytes
                 byte[] nameByte = nameString.getBytes();
-                byte[] messagseByte = messagseString.getBytes();
+                byte[] messageByte = messageString.getBytes();
 
 
                 // Combine two Byte arrays (two fields) into one
-                final byte[] allBytes = new byte[nameByte.length + messagseByte.length];
+                final byte[] allBytes = new byte[nameByte.length + messageByte.length];
                 System.arraycopy(nameByte, 0, allBytes, 0, nameByte.length);
-                System.arraycopy(messagseByte, 0, allBytes, nameByte.length, messagseByte.length);
+                System.arraycopy(messageByte, 0, allBytes, nameByte.length, messageByte.length);
 
 
                 new Handler().postDelayed(new Runnable() {
                     @Override
                     public void run() {
-                        if (messagseString.length() > 0 && nameString.length() >0) {
+                        if (messageString.length() > 0 && nameString.length() >0) {
                             //scaledrone.publish("observable-room", message);
                             try {
 
 
                                 mBTSocket.getOutputStream().write(allBytes); //Send Message over BLE
-                                Log.w("debugggg",messagseString + nameString);
+                                Log.w("debugggg",messageString + nameString);
                                 msg("Message Send");
 
 
                                 // Clear Text Fields
                                 name.setText(null);
-                                messagse.setText(null);
+                                message.setText(null);
 
 
 
@@ -119,7 +119,7 @@ public class Controlling extends Activity {
 
                             };
                         } else{
-                                    msg("Messagse or name field is empty");
+                                    msg("Message or name field is empty");
 
                         }
                     }
