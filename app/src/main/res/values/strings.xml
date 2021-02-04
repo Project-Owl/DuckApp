@@ -3,6 +3,6 @@
     <string name="name">Name:</string>
     <string name="send">Send</string>
     <string name="logo">Logo</string>
-    <string name="message">message</string>
+    <string name="message">Message:</string>
 
 </resources>
