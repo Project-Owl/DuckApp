@@ -1,4 +1,4 @@
-package com.example.duckappfrontend;
+package com.ClusterDuck.duckappfrontend;
 
 import android.app.Activity;
 import android.app.ProgressDialog;
@@ -65,7 +65,7 @@ public class Controlling extends Activity {
         mDeviceUUID = UUID.fromString(b.getString(MainActivity.DEVICE_UUID));
         mMaxChars = b.getInt(MainActivity.BUFFER_SIZE);
 
-        Log.d(TAG, "Ready");
+        //Log.d(TAG, "Ready");
 
 
 
@@ -104,7 +104,7 @@ public class Controlling extends Activity {
 
 
                                 mBTSocket.getOutputStream().write(allBytes); //Send Message over BLE
-                                Log.w("debugggg",messageString + nameString);
+                                //Log.w("debugggg",messageString + nameString);
                                 msg("Message Send");
 
 
@@ -246,7 +246,7 @@ public class Controlling extends Activity {
         if (mBTSocket != null && mIsBluetoothConnected) {
             new DisConnectBT().execute();
         }
-        Log.d(TAG, "Paused");
+        //Log.d(TAG, "Paused");
         super.onPause();
     }
 
@@ -255,13 +255,13 @@ public class Controlling extends Activity {
         if (mBTSocket == null || !mIsBluetoothConnected) {
             new ConnectBT().execute();
         }
-        Log.d(TAG, "Resumed");
+        //Log.d(TAG, "Resumed");
         super.onResume();
     }
 
     @Override
     protected void onStop() {
-        Log.d(TAG, "Stopped");
+        //Log.d(TAG, "Stopped");
         super.onStop();
     }
 

@@ -1,4 +1,4 @@
-package com.example.duckappfrontend;
+package com.ClusterDuck.duckappfrontend;
 
 import androidx.annotation.LongDef;
 import androidx.appcompat.app.AppCompatActivity;
@@ -148,12 +148,12 @@ public class MainActivity extends Activity {
                 SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
                 String uuid = prefs.getString("prefUuid", "Null");
                 mDeviceUUID = UUID.fromString(uuid);
-                Log.d(TAG, "UUID: " + uuid);
+                //Log.d(TAG, "UUID: " + uuid);
                 String bufSize = prefs.getString("prefTextBuffer", "Null");
                 mBufferSize = Integer.parseInt(bufSize);
 
                 String orientation = prefs.getString("prefOrientation", "Null");
-                Log.d(TAG, "Orientation: " + orientation);
+                //Log.d(TAG, "Orientation: " + orientation);
                 if (orientation.equals("Landscape")) {
                     setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE);
                 } else if (orientation.equals("Portrait")) {

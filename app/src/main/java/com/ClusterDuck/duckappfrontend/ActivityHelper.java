@@ -1,4 +1,4 @@
-package com.example.duckappfrontend;
+package com.ClusterDuck.duckappfrontend;
 
 import android.app.Activity;
 import android.content.SharedPreferences;

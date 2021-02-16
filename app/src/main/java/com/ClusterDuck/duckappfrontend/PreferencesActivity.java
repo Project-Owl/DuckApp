@@ -1,4 +1,4 @@
-package com.example.duckappfrontend;
+package com.ClusterDuck.duckappfrontend;
 
 import android.content.SharedPreferences;
 import android.content.SharedPreferences.OnSharedPreferenceChangeListener;

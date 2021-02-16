@@ -1,4 +1,4 @@
-package com.example.duckappfrontend;
+package com.ClusterDuck.duckappfrontend;
 
 import android.app.Activity;
 import android.app.ProgressDialog;
@@ -58,7 +58,7 @@ public class MonitoringView extends Activity {
         mDevice = b.getParcelable(MainActivity.DEVICE_EXTRA);
         mDeviceUUID = UUID.fromString(b.getString(MainActivity.DEVICE_UUID));
         mMaxChars = b.getInt(MainActivity.BUFFER_SIZE);
-        Log.d(TAG, "Ready");
+        //Log.d(TAG, "Ready");
         mTxtReceive = (TextView) findViewById(R.id.txtReceive);
         chkScroll = (CheckBox) findViewById(R.id.chkScroll);
         chkReceiveText = (CheckBox) findViewById(R.id.chkReceiveText);
@@ -207,7 +207,7 @@ public class MonitoringView extends Activity {
         if (mBTSocket != null && mIsBluetoothConnected) {
             new DisConnectBT().execute();
         }
-        Log.d(TAG, "Paused");
+        //Log.d(TAG, "Paused");
         super.onPause();
     }
 
@@ -216,13 +216,13 @@ public class MonitoringView extends Activity {
         if (mBTSocket == null || !mIsBluetoothConnected) {
             new ConnectBT().execute();
         }
-        Log.d(TAG, "Resumed");
+        //.d(TAG, "Resumed");
         super.onResume();
     }
 
     @Override
     protected void onStop() {
-        Log.d(TAG, "Stopped");
+        //Log.d(TAG, "Stopped");
         super.onStop();
     }
 
