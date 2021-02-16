@@ -16,7 +16,7 @@ You will need to setup a simple ClusterDuck Network to use the app to interface 
 
 #### 2. Install the App from the play store or From Android Studio
 
-Testing has ended and will be available soon!
+Testing has ended and will be available soon! You can download the latest release [here](https://github.com/Project-Owl/DuckApp/tree/master/releases/Beta%20v1_0)
 
 #### 3. Connect the App to your BLE Duck 
 
