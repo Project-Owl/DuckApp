@@ -1,5 +1,5 @@
 # ClusterDuck APP
-**IMPORTANT:** Additional hardware required to operate properly. See below for more details
+**IMPORTANT:** Additional hardware required to operate properly.
 
 The ClusterDuck App is an open-source tool built by the ClusterDuck Protocol community, an open-source effort released in partnership with the Linux Foundation in March 2020.  This tool allows you to connect to DuckLink devices over Bluetooth and share data.
 
